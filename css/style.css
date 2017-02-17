@@ -1,11 +1,22 @@
-.container {
-  background: url(../img/LindaMarBeachView.jpg)
+.wallpaper {
+  margin-top: -20px;
+  background-color: lightblue;
 }
 
-.container h3 {
-  color: white;
+h3 {
+  color: black;
+  text-indent: 20px;
 }
 
-.container p {
-  color: white;
+ul {
+  text-indent: 20px;
+}
+
+li {
+  color: black;
+  font-weight: bold;
+}
+
+#myCarousel {
+  border-bottom: solid black;
 }
