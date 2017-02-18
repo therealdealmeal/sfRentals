@@ -2,10 +2,9 @@
   "name": "sfRental",
   "version": "1.0.0",
   "description": "",
-  "main": "algies.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/therealdealmeal/sfRentals/issues"
   },
-  "homepage": "https://github.com/therealdealmeal/sfRentals#readme"
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.6.0"
+  }
 }
