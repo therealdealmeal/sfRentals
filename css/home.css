@@ -1,0 +1,13 @@
+.container h3 {
+  color: black;
+  text-indent: 20px;
+}
+
+.container ul {
+  text-indent: 20px;
+}
+
+.container li {
+  color: black;
+  font-weight: bold;
+}
