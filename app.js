@@ -1,17 +1,21 @@
-var myApp = angular.module('myApp',['ngRoute'])
+var myApp = angular.module("myApp",["ngRoute"]);
 
-myApp.config(['$routeProvider', function($routeProvider, $locationProvider){
-
-  $locationProvider.html5Mode(true);
+myApp.config(['$routeProvider', function($routeProvider){
 
   $routeProvider
-    .when('/', {
-      templateUrl: 'public/templates/home.html'
-    })
-    .when('/rates', {
-      templateUrl: 'public/templates/rates.html'
-    })
-    .otherwise({
-      redirectTo: '/'
-    });
+  .when('/', {
+    templateUrl: '/public/views/home.html'
+  })
+  .when('/rates', {
+    templateUrl: '/public/views/rates.html'
+  })
+  .when('/calendar', {
+    templateUrl: '/public/views/calendar.html'
+  })
+  .when('/location', {
+    templateUrl: '/public/views/rates.html'
+  })
+  .when('/owner_info', {
+    templateUrl: '/public/views/rates.html'
+  })
 }]);
