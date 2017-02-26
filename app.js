@@ -13,9 +13,9 @@ myApp.config(['$routeProvider', function($routeProvider){
     templateUrl: '/public/views/calendar.html'
   })
   .when('/location', {
-    templateUrl: '/public/views/rates.html'
+    templateUrl: '/public/views/location.html'
   })
   .when('/owner_info', {
-    templateUrl: '/public/views/rates.html'
+    templateUrl: '/public/views/owner_info.html'
   })
 }]);
