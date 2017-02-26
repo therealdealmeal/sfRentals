@@ -20,6 +20,7 @@
     "angular-strap": "^2.3.12",
     "font-awesome": "^4.7.0",
     "angular-resource": "^1.6.2",
-    "bootstrap-additions": "^0.3.1"
+    "bootstrap-additions": "^0.3.1",
+    "fullcalendar": "^3.2.0"
   }
 }

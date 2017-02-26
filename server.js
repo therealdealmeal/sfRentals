@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var app = express();
 
-app.use(express.static(pah.join(__dirname, '.')));
+app.use(express.static(path.join(__dirname, '.')));
 
 // app.use('/', function(req, res) {
 //   res.send("Checking Express program");
