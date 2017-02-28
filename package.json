@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/therealdealmeal/sfRentals#readme",
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "nodemailer": "^3.1.4"
   }
 }

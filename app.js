@@ -19,3 +19,13 @@ myApp.config(['$routeProvider', function($routeProvider){
     templateUrl: '/public/views/owner_info.html'
   })
 }]);
+
+myApp.controller('emailContact', function($scope) {
+  $scope.name = "",
+  $scope.mail = "",
+  $scope.message = ""
+  $scope.myDir = false;
+  $scope.toggle = function() {
+    $scope.myDir = !$scope.myDir;
+  };
+});

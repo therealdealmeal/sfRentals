@@ -22,7 +22,7 @@
     <link href="css/location.css" rel="stylesheet" type="text/css">
     <link href="libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
     <link href="libs/fullcalendar/dist/fullcalendar.print.min.css" rel="stylesheet" media="print">
-
+    <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- /*<style>
       body {  padding-top:80px; word-wrap: break-word; background-color: lightblue; }
     </style>*/ -->
@@ -50,6 +50,25 @@
 
     <div ng-include="'public/views/carousel.html'"></div>
     <main ng-view></main>
+
+    <div class="email" ng-controller="emailContact">
+      <p>Email To Book Today: <p>
+      <button ng-click="toggle()" type="button" class="btn btn-info active"><i class="fa fa-envelope fa-4x"></i></button>
+
+      <form action="/send" ng-show="myDir" method="post" enctype="text/plain" class="sendEmail">
+        Name:<br>
+        <input type="text" name="name" ng-model="name" id="name"><br>
+        E-mail:<br>
+        <input type="email" name="mail" id="mail" ng-model="mail"><br>
+        Message:<br>
+        <textarea name="message" id="message" size="350" ng-model="message"></textarea>
+        <br><br>
+        <input type="submit" value="send" class="btn btn-success btn-lg" id="send_email">
+        <script src="public/js/email.js"></script>
+        <span id="note"></span>
+      </form>
+
+    </div>
 
 
 
