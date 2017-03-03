@@ -16,6 +16,7 @@
 
     <link href="css/index.css" rel="stylesheet" type="text/css">
     <link href="css/carousel.css" rel="stylesheet" type="text/css">
+    <link href="css/navbar.css" rel="stylesheet" type="text/css">
     <link href="css/home.css" rel="stylesheet" type="text/css">
     <link href="css/rates.css" rel="stylesheet" type="text/css">
     <link href="css/calendar.css" rel="stylesheet" type="text/css">
@@ -30,25 +31,19 @@
   </head>
   <body>
 
-    <header>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#/">San Francisco Vacation</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#!/rates">Rates</a></li>
-            <li><a href="#!/calendar">Calendar</a></li>
-            <li><a href="#!/location">Location</a></li>
-            <li><a href="#!/owner_info">Owner Info</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-
     <div ng-include="'public/views/carousel.html'"></div>
+
+    <div class="navbar navbar-inverse navbar-fixed-left navbar-fixed-top">
+      <ul class="nav nav-pills">
+         <li><a href="#" class="navbar-link" id="home-pill">Home</a></li>
+         <li><a href="#!/rates" class="navbar-link">Rates</a></li>
+         <li><a href="#!/calendar" class="navbar-link">Calendar</a></li>
+         <li><a href="#!/location" class="navbar-link">Location</a></li>
+         <li><a href="#!/owner_info" class="navbar-link" id="owner-pill">Owner Info</a></li>
+      </ul>
+    </div>
+
+
     <main ng-view></main>
 
     <div class="email" ng-controller="emailContact">
