@@ -10,3 +10,8 @@ body {
 button {
   border-radius: 8px;
 }
+
+li {
+  margin-left: 210px;
+  margin-right: 210px;
+}

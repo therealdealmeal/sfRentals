@@ -1,0 +1,41 @@
+.navbar-fixed-left {
+  width: 90px;
+  position: fixed;
+  border-radius: 0;
+  height: 100%;
+}
+
+.navbar-fixed-left .nav-pills > li {
+  float: none;
+  width: 90px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  text-align: left;
+}
+
+.nav-pills .navbar-link {
+  text-decoration: underline;
+}
+
+.nav-pills .navbar-link:hover {
+  background-color: blue;
+}
+
+.nav-pills .navbar-link:active {
+  background-color: none;
+}
+
+#home-pill {
+  position: relative;
+  left: 15px;
+  width: 90px;
+}
+
+#owner-pill {
+  position: relative;
+  right: 10px;
+  word-break: keep-all;
+}
