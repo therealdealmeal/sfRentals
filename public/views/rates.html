@@ -1,6 +1,6 @@
 <div class="container">
   <h3>Rental Basis:</h3>
-  <table style="width:100%">
+  <table style="width:100%" ng-controller="currencyRates">
     <tr>
       <th>Rate</th>
       <th>Weekday Night</th>
@@ -10,22 +10,22 @@
     </tr>
     <tr>
       <td>Standard Rate</td>
-      <td>$700</td>
-      <td>$800</td>
-      <td>$4,000</td>
-      <td>$12,000</td>
+      <td>{{  STArateDay | currency  }}</td>
+      <td>{{  STArateEnd | currency  }}</td>
+      <td>{{  STArateWLy | currency  }}</td>
+      <td>{{  STArateMLy | currency  }}</td>
     </tr>
     <tr>
       <td>Winter Rate</td>
-      <td>$400</td>
-      <td>$600</td>
-      <td>$3,150</td>
-      <td>$12,000</td>
+      <td>{{  WINrateDay | currency  }}</td>
+      <td>{{  WINrateEnd | currency  }}</td>
+      <td>{{  WINrateWLy | currency  }}</td>
+      <td>{{  WINrateMLy | currency  }}</td>
     </tr>
     <tr>
       <td>Holiday Rate</td>
-      <td>$800</td>
-      <td>$800</td>
+      <td>{{  HOLrateDay | currency  }}</td>
+      <td>{{  HOLrateEnd | currency  }}</td>
       <td>-</td>
       <td>-</td>
     </tr>
