@@ -9,8 +9,8 @@ app.use(express.static(path.join(__dirname, '.')));
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: user.email,
-        pass: user.pass
+        user: '',
+        pass: ''
     }
 });
 
