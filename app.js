@@ -21,7 +21,7 @@ myApp.config(['$routeProvider', function($routeProvider){
 }]);
 
 myApp.controller('emailContact', function($scope) {
-  $scope.name = "",
+  $scope.name = "Hi",
   $scope.mail = "",
   $scope.message = ""
   $scope.myDir = false;
@@ -29,3 +29,16 @@ myApp.controller('emailContact', function($scope) {
     $scope.myDir = !$scope.myDir;
   };
 });
+
+myApp.controller('currencyRates', function($scope) {
+  $scope.STArateDay = 700;
+  $scope.WINrateDay = 400;
+  $scope.HOLrateDay = 800;
+  $scope.STArateEnd = 800;
+  $scope.WINrateEnd = 600;
+  $scope.HOLrateEnd = 800;
+  $scope.STArateWLy = 4000;
+  $scope.WINrateWLy = 3150;
+  $scope.STArateMLy = 12000;
+  $scope.WINrateMLy = 12000;
+})
