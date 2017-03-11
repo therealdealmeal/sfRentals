@@ -49,21 +49,21 @@
     <br>
     <hr>
 
-    <div class="email" ng-controller="emailContact">
+    <div class="email" ng-controller="emailController as ec">
       <p>Email To Book Today: <p>
       <button ng-click="toggle()" type="button" class="btn btn-info active"><i class="fa fa-envelope fa-4x"></i></button>
 
-      <form action="/send" ng-show="myDir" method="post" enctype="text/plain" class="sendEmail">
-        Name:<br>
-        <input type="text" name="name" ng-model="name" id="name"><br>
-        E-mail:<br>
-        <input type="email" name="mail" id="mail" ng-model="mail"><br>
-        Message:<br>
-        <textarea name="message" id="message" size="350" ng-model="message"></textarea>
+      <form ng-submit="sendEmail()" ng-show="myDir">
+        <label>Name:</label><br>
+        <input type="text" id="name" ng-model="Tenant.name" required><br>
+        <label>E-mail:</label><br>
+        <input type="email" id="email" ng-model="Tenant.email" required><br>
+        <label>Comment:</label><br>
+        <textarea id="comment" cols="40" rows="5" ng-model="Tenant.comment" required></textarea>
         <br><br>
         <input type="submit" value="send" class="btn btn-success btn-lg" id="send_email">
-        <script src="public/js/email.js"></script>
-        <span id="note"></span>
+        <!-- <script src="public/js/email.js"></script> -->
+        <!-- <span id="note"></span> -->
       </form>
 
     </div>

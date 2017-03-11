@@ -20,15 +20,68 @@ myApp.config(['$routeProvider', function($routeProvider){
   })
 }]);
 
-myApp.controller('emailContact', function($scope) {
-  $scope.name = "Hi",
-  $scope.mail = "",
-  $scope.message = ""
+// myApp.factory('emailFactory', ["$http", function($http){
+//   var factory = {};
+//
+//   factory.sendEmail = function($http) {
+//     return $http.post('/email/send');
+//   }
+// }]);
+
+myApp.controller('emailController', ['$scope', '$http', '$location', function($scope, $http, $location) {
   $scope.myDir = false;
   $scope.toggle = function() {
     $scope.myDir = !$scope.myDir;
   };
-});
+  $scope.Tenant = {
+    name: '',
+    email: '',
+    comment: ''
+  };
+  $scope.newTenant = {};
+  data = $scope.newTenant;
+
+  this.sendEmail = function() {
+    // $scope.currentTenant = {};
+    data = {name: $scope.Tenant.name, email: $scope.Tenant.email, comment: $scope.Tenant.comment};
+    console.log(data);
+    if (data !== '') {
+      $http.post('/email/send', data).then(function successCallback() {
+        console.log("Success!!");
+        $location.url('/');
+      }, function errorCallback() {
+        console.log("Error!!");
+      });
+        // .success(function(data, status, headers, config) {
+        //   console.log("Success!!");
+        // }).
+        // error(function(data, status, headers, config) {
+        //   console.log("Error!!");
+        // });
+    }
+      // .success(function(tenantData){
+      //   if(tenantData) {
+      //     console.log("Success!!");
+      //   }
+      // })
+      // .error(function(tenantData) {
+      //   if(!tenantData) {
+      //     console.log("Error!!");
+      //   }
+      // })
+  };
+
+  // $scope.emailProcess = function() {
+  //   $scope.currentTenant = {
+  //     name: $scope.tenant.name,
+  //     email: $scope.tenant.email,
+  //     comment: $scope.tenant.comment
+  //   }
+  //   emailFactory.sendEmail($scope.currentTenant, function() {
+  //     console.log($scope.currentTenant);
+  //   });
+  // }
+}]);
 
 myApp.controller('currencyRates', function($scope) {
   $scope.STArateDay = 700;

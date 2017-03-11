@@ -1,50 +1,61 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 var path = require('path');
+var bodyParser = require('body-parser');
 var app = express();
+var port = (process.env.PORT || 8000);
+
+var transporter = nodemailer.createTransport(smtpTransport({
+  service: 'gmail',
+  auth: {
+    user: 'boceltic2000@gmail.com',
+    pass: 'testingthewaters'
+  }
+}));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 app.use(express.static(path.join(__dirname, '.')));
 
 
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: '',
-        pass: ''
-    }
+app.get('/email', function (req, res) {
+  res.sendMail('index.html');
+  // console.log('Nodemailer reading console log...');
 });
 
+app.post('/email/send', function (req, res) {
+  console.log('Attempting to send email...');
+  // if(req.body.email == '' || req.body.name == '') {
+  //   res.send("Error: Email & Name should not be Blank");
+  //   return false;
+  // }
+  var data = req.body;
+  console.log(data);
 
-app.get('/', function (req, res) {
-  res.sendfile('index.html');
-});
-
-app.post('/send', function (req, res) {
   var mailOptions = {
-      from: req.query.mail, // sender address
-      to: 'boceltic2000@gmail.com', // list of receivers
-      subject: 'Rental Inquiry', // Subject line
-      text: req.query.message
+    from: data.email,
+    to: "boceltic2000@gmail.com",
+    subject: "Nodemailer Rental Inquiry " + data.name,
+    text: "Hello World", // plain text
+    html: "<b>"+data.comment+"<b>" //html body of the index.html file
   }
-  console.log(mailOptions);
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-          return console.log(error);
+
+  transporter.sendMail(mailOptions, function (err, res) {
+      if(err){
+          console.log('Error');
+      } else {
+          console.log('Email Sent '+ data);
       }
-      console.log('Email successfully sent!');
+      transporter.close();
   });
+  res.render("index");
 });
 
 
-// app.use('/', function(req, res) {
-//   res.send("Checking Express program");
-//   console.log(req.cookies);
-//   console.log('==========');
-//   console.log(req.session);
-// });
 
-// require('./app/routes.js')(app, passport);
-
-app.listen(8000);
-console.log('Server running on port:  ' + 8000);
+app.listen(port);
+console.log('Server running on port:  ' + port);
