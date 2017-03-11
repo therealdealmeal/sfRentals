@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname, '.')));
 
@@ -39,7 +40,7 @@ app.post('/email/send', function (req, res) {
   var mailOptions = {
     from: data.email,
     to: "boceltic2000@gmail.com",
-    subject: "Nodemailer Rental Inquiry " + data.name,
+    subject: "Nodemailer Rental Inquiry " + data.name + " | " + data.email,
     text: "Hello World", // plain text
     html: "<b>"+data.comment+"<b>" //html body of the index.html file
   }
@@ -48,11 +49,11 @@ app.post('/email/send', function (req, res) {
       if(err){
           console.log('Error');
       } else {
-          console.log('Email Sent '+ data);
+          console.log('Email Sent '+ req.body);
       }
       transporter.close();
   });
-  res.render("index");
+  // res.render("index");
 });
 
 

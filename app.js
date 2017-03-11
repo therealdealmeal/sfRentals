@@ -33,25 +33,25 @@ myApp.controller('emailController', ['$scope', '$http', '$location', function($s
   $scope.toggle = function() {
     $scope.myDir = !$scope.myDir;
   };
-  $scope.Tenant = {
-    name: '',
-    email: '',
-    comment: ''
-  };
+
   $scope.newTenant = {};
   data = $scope.newTenant;
 
-  this.sendEmail = function() {
+  $scope.clearFields = function() {
+    $scope.name = null;
+  }
+
+  $scope.sendEmail = function() {
     // $scope.currentTenant = {};
-    data = {name: $scope.Tenant.name, email: $scope.Tenant.email, comment: $scope.Tenant.comment};
+    data = ({name: $scope.newTenant.name, email: $scope.newTenant.email, comment: $scope.newTenant.comment});
     console.log(data);
-    if (data !== '') {
+    if (data) {
       $http.post('/email/send', data).then(function successCallback() {
         console.log("Success!!");
-        $location.url('/');
-      }, function errorCallback() {
-        console.log("Error!!");
-      });
+        // $scope.newTenant = ;
+        return $location.url('/');
+        }
+      )}
         // .success(function(data, status, headers, config) {
         //   console.log("Success!!");
         // }).
@@ -69,7 +69,7 @@ myApp.controller('emailController', ['$scope', '$http', '$location', function($s
       //     console.log("Error!!");
       //   }
       // })
-  };
+  }
 
   // $scope.emailProcess = function() {
   //   $scope.currentTenant = {
@@ -81,7 +81,7 @@ myApp.controller('emailController', ['$scope', '$http', '$location', function($s
   //     console.log($scope.currentTenant);
   //   });
   // }
-}]);
+]);
 
 myApp.controller('currencyRates', function($scope) {
   $scope.STArateDay = 700;
