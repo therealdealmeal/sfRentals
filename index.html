@@ -53,7 +53,7 @@
       <p>Email To Book Today: <p>
       <button ng-click="toggle()" type="button" class="btn btn-info active"><i class="fa fa-envelope fa-4x"></i></button>
 
-      <form ng-submit="sendEmail()" ng-show="myDir">
+      <form ng-submit="clearFields()" ng-show="myDir">
         <label>Name:</label><br>
         <input type="text" id="name" ng-model="newTenant.name" required><br>
         <label>E-mail:</label><br>
@@ -61,7 +61,7 @@
         <label>Comment:</label><br>
         <textarea id="comment" cols="40" rows="5" ng-model="newTenant.comment" required></textarea>
         <br><br>
-        <input type="submit" ng-click="clearFields()" value="send" class="btn btn-success btn-lg" id="send_email">
+        <input type="submit" ng-click="sendEmail()" value="send" class="btn btn-success btn-lg" id="send_email">
         <!-- <script src="public/js/email.js"></script> -->
         <!-- <span id="note"></span> -->
       </form>

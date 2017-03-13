@@ -40,7 +40,7 @@ myApp.controller('emailController', ['$scope', '$http', '$location', function($s
   data = $scope.newTenant;
 
   $scope.clearFields = function() {
-    $scope.name = null;
+    $scope.newTenant = null;
   }
 
   $scope.sendEmail = function() {
