@@ -1,6 +1,8 @@
 var myApp = angular.module("myApp",["ngRoute"]);
 
-myApp.config(['$routeProvider', function($routeProvider){
+myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+
+  $locationProvider.html5Mode(true);
 
   $routeProvider
   .when('/', {
@@ -52,6 +54,7 @@ myApp.controller('emailController', ['$scope', '$http', '$location', function($s
         return $location.url('/');
         }
       )}
+
         // .success(function(data, status, headers, config) {
         //   console.log("Success!!");
         // }).
