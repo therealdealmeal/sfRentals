@@ -5,12 +5,13 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var port = (process.env.PORT || 8000);
+var credential = require(path.join(__dirname, './public/js/email.js'));
 
 var transporter = nodemailer.createTransport(smtpTransport({
   service: 'gmail',
   auth: {
-    user: 'boceltic2000@gmail.com',
-    pass: '=)'
+    user: credential.username,
+    pass: credential.password
   }
 }));
 
@@ -40,7 +41,7 @@ app.post('/email/send', function (req, res) {
   var mailOptions = {
     from: data.email,
     to: "boceltic2000@gmail.com",
-    subject: "Nodemailer Rental Inquiry " + data.name + " | " + data.email,
+    subject: "Pacifica Rental Inquiry " + data.name + " | " + data.email,
     text: "Hello World", // plain text
     html: "<b>"+data.comment+"<b>" //html body of the index.html file
   }
