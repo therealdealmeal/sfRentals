@@ -34,34 +34,38 @@ myApp.controller('emailController', ['$scope', '$http', '$location', function($s
   $scope.myDir = false;
   $scope.toggle = function() {
     $scope.myDir = !$scope.myDir;
+    window.scrollTo(0, 2000);
   };
 
   $scope.newTenant = {};
   data = $scope.newTenant;
 
   $scope.clearFields = function() {
-    $scope.name = null;
+    $scope.newTenant = null;
   }
 
   $scope.sendEmail = function() {
-    // $scope.currentTenant = {};
+
+    var successCallback = function() {
+      if(data) {
+        console.log("Success with Ang");
+      }
+    }
+
+    var errorCallback = function() {
+      if(!data) {
+        console.log("Error with Ang");
+      }
+    }
+
     data = ({name: $scope.newTenant.name, email: $scope.newTenant.email, comment: $scope.newTenant.comment});
     console.log(data);
-    if (data) {
-      $http.post('/email/send', data).then(function successCallback() {
-        console.log("Success!!");
-        // $scope.newTenant = ;
-        return $location.url('/');
-        }
-      )}
-
-        // .success(function(data, status, headers, config) {
-        //   console.log("Success!!");
-        // }).
-        // error(function(data, status, headers, config) {
-        //   console.log("Error!!");
-        // });
+    if (data.name !== undefined && data.email !== undefined && data.comment !== undefined) {
+      $http.post('/email/send', data).then(successCallback());
+    } else {
+      errorCallback();
     }
+    return $location.url('/');
       // .success(function(tenantData){
       //   if(tenantData) {
       //     console.log("Success!!");
@@ -84,7 +88,7 @@ myApp.controller('emailController', ['$scope', '$http', '$location', function($s
   //     console.log($scope.currentTenant);
   //   });
   // }
-]);
+}]);
 
 myApp.controller('currencyRates', function($scope) {
   $scope.STArateDay = 700;
