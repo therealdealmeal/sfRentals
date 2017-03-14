@@ -24,10 +24,10 @@ app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, '.')));
 
 
-app.get('/email', function (req, res) {
-  res.sendMail('index.html');
-  // console.log('Nodemailer reading console log...');
-});
+// app.get('/email', function (req, res) {
+//   res.sendMail('index.html');
+//   console.log('Nodemailer reading console log...');
+// });
 
 app.post('/email/send', function (req, res) {
   console.log('Attempting to send email...');
@@ -54,7 +54,7 @@ app.post('/email/send', function (req, res) {
       }
       transporter.close();
   });
-  // res.render("index");
+  res.end();
 });
 
 
