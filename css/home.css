@@ -1,6 +1,7 @@
 .container h3 {
   color: black;
   text-indent: 20px;
+  text-decoration: none;
 }
 
 .container ul {
@@ -10,4 +11,8 @@
 .container li {
   color: black;
   font-weight: bold;
+}
+
+.container h2 {
+  text-decoration: underline;
 }

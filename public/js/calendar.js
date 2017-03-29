@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 		$('#calendar').fullCalendar({
+
 			header: {
 				left: 'prev,next today',
 				center: 'title',
@@ -16,5 +17,5 @@ $(document).ready(function() {
 				}
 				]
 		});
-		$('#calendar').fullCalendar('gotoDate', currentDate);
+		$('#calendar').fullCalendar('gotoDate');
 	});

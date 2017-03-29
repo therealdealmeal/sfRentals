@@ -16,22 +16,24 @@
   text-align: left;
 }
 
+.nav-pills {
+  text-align: center;
+}
+
 .nav-pills .navbar-link {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .nav-pills .navbar-link:hover {
-  background-color: blue;
-}
-
-.nav-pills .navbar-link:active {
-  background-color: none;
+  background-color: transparent;
+  color: yellow;
 }
 
 #home-pill {
   position: relative;
   left: 15px;
   width: 90px;
+  padding-left: 0;
 }
 
 #owner-pill {
