@@ -24,10 +24,9 @@ app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, '.')));
 
 
-// app.get('/email', function (req, res) {
-//   res.sendMail('index.html');
-//   console.log('Nodemailer reading console log...');
-// });
+app.get('*', function(req, res) {
+  res.sendfile('index.html')
+});
 
 app.post('/email/send', function (req, res) {
   console.log('Attempting to send email...');

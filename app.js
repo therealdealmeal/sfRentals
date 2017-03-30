@@ -6,19 +6,24 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 
   $routeProvider
   .when('/', {
-    templateUrl: '/public/views/home.html'
+    templateUrl: '/public/views/home.html',
+    access: true
   })
   .when('/rates', {
-    templateUrl: '/public/views/rates.html'
+    templateUrl: '/public/views/rates.html',
+    access: true
   })
   .when('/calendar', {
-    templateUrl: '/public/views/calendar.html'
+    templateUrl: '/public/views/calendar.html',
+    access: true
   })
   .when('/location', {
-    templateUrl: '/public/views/location.html'
+    templateUrl: '/public/views/location.html',
+    access: true
   })
   .when('/owner_info', {
-    templateUrl: '/public/views/owner_info.html'
+    templateUrl: '/public/views/owner_info.html',
+    access: true
   })
 }]);
 
