@@ -8,4 +8,6 @@
 
 #myCarousel {
   border-bottom: solid black;
+  margin-top: -40px;
+  margin-right: -50px;
 }
